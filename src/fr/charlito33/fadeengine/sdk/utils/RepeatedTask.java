@@ -35,8 +35,12 @@ public class RepeatedTask {
         this(runnable, 60);
     }
 
-    public void run() {
-        thread.start();
+    public void start() {
+        running = true;
+    }
+
+    public void stop() {
+        running = false;
     }
 
     private void capFrameRate(int fps) {
@@ -62,4 +66,6 @@ public class RepeatedTask {
     private long getMillisSinceStarted() {
         return System.currentTimeMillis() - STARTED_TIME;
     }
+
+
 }
